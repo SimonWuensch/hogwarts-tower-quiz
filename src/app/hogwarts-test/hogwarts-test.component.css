@@ -1,0 +1,78 @@
+/* Grundlegende Styling-Anpassungen für das gesamte Formular */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Styling für jede Frage und ihre Antworten */
+.question-container {
+  margin-bottom: 20px;
+}
+
+.question {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.answer {
+  display: flex;
+  align-items: start;
+  margin-bottom: 10px;
+}
+
+input[type='radio'] {
+  margin-right: 10px;
+  cursor: pointer;
+  transform: scale(1.2);
+  margin-top: 5px;
+}
+
+label {
+  cursor: pointer;
+}
+
+/* Styling für die Navigationsbuttons */
+button {
+  outline: none;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Spezifische Anpassungen für das Ergebnis */
+.results {
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.result-item {
+  margin-top: 10px;
+}
+
+.percentage {
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 30px;
+}

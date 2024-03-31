@@ -1,0 +1,47 @@
+<form [formGroup]="quizForm" (ngSubmit)="submitQuiz()">
+  <ng-container *ngIf="!result; else showResults">
+    <div formArrayName="answers">
+      Frage: {{ currentStep + 1 }} / {{ questions.length }}
+      <div
+        class="question-container"
+        *ngFor="let question of questions; let i = index"
+      >
+        <div class="question" *ngIf="currentStep === i">
+          <h3>{{ question.question }}</h3>
+          <div class="answer" *ngFor="let answer of question.answers">
+            <input
+              type="radio"
+              [formControlName]="i.toString()"
+              [value]="answer.school"
+              id="answer-{{ i }}-{{ answer.school }}"
+            />
+            <label
+              class="question-label"
+              for="answer-{{ i }}-{{ answer.school }}"
+              >{{ answer.answer }}</label
+            >
+          </div>
+          <div class="button-container">
+            <button
+              type="button"
+              (click)="previousQuestion()"
+              [disabled]="currentStep === 0"
+            >
+              Zurück
+            </button>
+            <button type="button" (click)="nextQuestion()">Weiter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #showResults>
+    <div class="results">
+      <h3>Deine Ergebnisse:</h3>
+      <div class="result-item">Ravenclaw: {{ result?.ravenclaw | number: '1.0-2' }}%</div>
+      <div class="result-item">Hufflepuff: {{ result?.huffelpuff | number: '1.0-2' }}%</div>
+      <div class="result-item">Gryffindor: {{ result?.gryffindor | number: '1.0-2' }}%</div>
+      <div class="result-item">Slytherin: {{ result?.slytherin | number: '1.0-2' }}%</div>
+    </div>
+  </ng-template>
+</form>
